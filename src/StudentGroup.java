@@ -19,13 +19,24 @@ public class StudentGroup implements StudentArrayOperation {
 	 * DO NOT remove or change this constructor, it will be used during task check
 	 * @param length
 	 */
+	int l;
+	ArrayList<Student> s=new ArrayList<Student>(Arrays.asList(students));
+	Iterator<Student> i=s.iterator();
+	
 	public StudentGroup(int length) {
+		l=length;
 		this.students = new Student[length];
 	}
+	
+	
 
 	@Override
 	public Student[] getStudents() {
-		// Add your implementation here
+		while(i.hasNext())
+		{
+			System.out.println(i.next());
+		}
+		
 		return null;
 	}
 
@@ -37,47 +48,64 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student getStudent(int index) {
 		// Add your implementation here
+		int j=0;
+		while(i.hasNext())
+		{
+			j++;
+			if(j==index)
+			{
+			System.out.println(j.next());	
+			}
+		}
 		return null;
 	}
 
 	@Override
 	public void setStudent(Student student, int index) {
 		// Add your implementation here
+		s.add(index,student);
 	}
 
 	@Override
 	public void addFirst(Student student) {
 		// Add your implementation here
+		s.add(0,student);
 	}
 
 	@Override
 	public void addLast(Student student) {
 		// Add your implementation here
+		s.add(s.size()-1,student);
 	}
 
 	@Override
 	public void add(Student student, int index) {
 		// Add your implementation here
+		s.add(index,student);
 	}
 
 	@Override
 	public void remove(int index) {
 		// Add your implementation here
+		s.remove(index);
 	}
 
 	@Override
 	public void remove(Student student) {
 		// Add your implementation here
+		s.remove(student);
 	}
 
 	@Override
 	public void removeFromIndex(int index) {
 		// Add your implementation here
+		s.remove(index);
 	}
 
 	@Override
 	public void removeFromElement(Student student) {
 		// Add your implementation here
+		s.remove(student);
 	}
 
 	@Override
@@ -134,6 +162,17 @@ public class StudentGroup implements StudentArrayOperation {
 	@Override
 	public Student getNextStudent(Student student) {
 		// Add your implementation here
+		int c=s.indexOf(student);
+		int k=0;
+		while(i.hasNext())
+		{
+			k++;
+			if(k==c)
+			{
+				System.out.println(i.next());
+			}
+		}
+		
 		return null;
 	}
 }
